@@ -1,1 +1,4 @@
 src/playground.html
+node_modules
+.parcel-cache
+dist
