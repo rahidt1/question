@@ -1,0 +1,152 @@
+:root {
+  --color-primary: #c59d5f;
+  --color-secondary: #102a42;
+  --color-text: #617d98;
+  --color-body: #f1f5f8;
+  --font-primary: "Open Sans", sans-serif;
+  --font-secondary: "Great Vibes", cursive;
+  --letter-spacing: 4px;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --trasition: all 0.3s;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+html {
+  font-size: 62.5%;
+}
+body {
+  background: var(--color-body);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+h1,
+h2 {
+  letter-spacing: var(--letter-spacing);
+}
+h1 {
+  font-family: var(--font-secondary);
+  font-size: 3.2rem;
+}
+h2 {
+  font-size: 1.4rem;
+}
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 4rem;
+  }
+  body {
+    font-size: 1.4rem;
+  }
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+
+/* Lists */
+.list {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Icons */
+.icon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+.icon--medium {
+  width: 25px;
+  height: 25px;
+}
+.icon--large {
+  width: 40px;
+  height: 40px;
+}
+.icon--primary {
+  color: var(--color-primary);
+}
+/* Collapsibles */
+.collapsible__header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.collapsible__toggler {
+  transition: var(--trasition);
+  position: absolute;
+  right: 0;
+}
+.collapsible__content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: var(--trasition);
+}
+.collapsible--expanded .collapsible__toggler {
+  transform: rotate(90deg);
+}
+.collapsible--expanded .collapsible__content {
+  /* Its crucial to use 'vh' instead of %. Because the content
+  area shuts abruptly if % is used. It also works if we used fixed
+  value like 'rem'*/
+  max-height: 100vh;
+  opacity: 1;
+  transition: var(--trasition);
+}
+
+/* Main section */
+
+.container {
+  display: grid;
+  place-items: center;
+}
+.title {
+  color: var(--color-primary);
+  margin: 10rem 0 6rem 0;
+}
+
+/* Question */
+.question {
+  padding: 2.4rem 2.4rem 0 2.4rem;
+  background: #fff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 572px;
+  box-shadow: var(--light-shadow);
+  margin-bottom: 2.5rem;
+}
+.question__header {
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.question__title {
+  text-transform: capitalize;
+  font-weight: 400;
+  color: var(--color-secondary);
+}
+
+.collapsible--expanded .question__content {
+  padding-top: 1.6rem;
+  padding-bottom: 2.4rem;
+}
+
+.minus {
+  max-height: 0;
+}
+.collapsible--expanded .plus {
+  max-height: 0;
+}
+.collapsible--expanded .minus {
+  max-height: 100vh;
+}
